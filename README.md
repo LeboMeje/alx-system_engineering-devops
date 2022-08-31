@@ -1,1 +1,1 @@
-Some text for this readme
+Some text for the readme
