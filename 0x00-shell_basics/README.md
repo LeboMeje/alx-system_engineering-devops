@@ -1,1 +1,5 @@
-Move the file betty from /tmp/ to /tmp/my_first_directory
+
+Shell basics command
+=======
+Display current directory contents
+
