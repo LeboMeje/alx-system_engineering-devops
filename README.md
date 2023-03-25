@@ -2,7 +2,7 @@
 Module of **System engineering** and **Devops**, carried out during **Full Stack Software Engineering studies** at **[ALX SE School](https://www.alxafrica.com/)**.
 ## Technologies
 * Scripts written in Bash 4.8.4
-* Tested on Ubuntu 14.04 LTS
+* Tested on Ubuntu 20.04 LTS
 * Puppet 3.8
 
 ## Projects
