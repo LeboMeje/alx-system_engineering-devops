@@ -5,6 +5,7 @@ Project done during **Full Stack Software Engineering studies** at **ALX SE Scho
 * Scripts written in Bash 4.8.4
 * Tested on Ubuntu 20.04 LTS
 * Puppet 5.5
+* Flask 2.1.0
 
 ## Files
 
