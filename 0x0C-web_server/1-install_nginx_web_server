@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # Script that installs Nginx server
-apt-get -y update
-apt-get -y install nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# Configure Nginx to return "Hello World!" at its root
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
+root /var/www/html;
+index index.html;
+return 200 'Hello, World!';
 service nginx start
