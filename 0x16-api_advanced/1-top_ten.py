@@ -14,7 +14,7 @@ def top_ten(subreddit):
     headers = {
         'User-Agent': u_agent
     }
- 
+
     params = {
         'limit': 10
     }
