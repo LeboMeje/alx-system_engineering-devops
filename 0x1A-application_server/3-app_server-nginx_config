@@ -1,0 +1,36 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 ipv6only=on default_server;
+	server_name localhost;
+
+	root /var/www/html;
+
+Expand All
+	@@ -41,9 +10,7 @@ server {
+		autoindex off;
+	}
+
+	index index.html index.htm index.nginx-debian.html;
+	rewrite ^/redirect_me https://github.com/luischaparroc permanent;
+
+	error_page 404 /custom_404.html;
+Expand All
+	@@ -53,64 +20,18 @@ server {
+		internal;
+	}
+
+	location /airbnb-onepage/ {
+		include proxy_params;
+                proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
+        }
+
+	location /airbnb-dynamic/number_odd_or_even/ {
+		include proxy_params;
+		proxy_pass http://0.0.0.0:5001/number_odd_or_even/;
+	}
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+}
