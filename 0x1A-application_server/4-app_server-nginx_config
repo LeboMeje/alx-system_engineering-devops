@@ -3,7 +3,9 @@ server {
 	listen [::]:80 ipv6only=on default_server;
 	server_name localhost;
 
-	root /var/www/html;
+	root /var/www/html;  
+	location /hbnb_static/ {
+		alias /data/web_static/current/;
 		autoindex off;
 	}
 
@@ -11,6 +13,8 @@ server {
 	rewrite ^/redirect_me https://www.lebomeje.tech permanent;
 
 	error_page 404 /custom_404.html;
+	location = /custom_404.html {
+		root /usr/share/nginx/html;
 		internal;
 	}
 
@@ -22,6 +26,10 @@ server {
 	location /airbnb-dynamic/number_odd_or_even/ {
 		include proxy_params;
 		proxy_pass http://0.0.0.0:5001/number_odd_or_even/;
+	}
+	location /api/ {
+		include proxy_params;
+		proxy_pass http://0.0.0.0:5002/api/;
 	}
 
 	location / {
