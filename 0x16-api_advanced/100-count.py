@@ -6,6 +6,8 @@ the top ten hot posts of a subreddit
 import re
 import requests
 import sys
+
+
 def add_title(dictionary, hot_posts):
     """ Adds item into a list """
     if len(hot_posts) == 0:
@@ -18,6 +20,8 @@ def add_title(dictionary, hot_posts):
                 dictionary[key] += 1
     hot_posts.pop(0)
     add_title(dictionary, hot_posts)
+
+
 def recurse(subreddit, dictionary, after=None):
     """ Queries to Reddit API """
     u_agent = 'Mozilla/5.0'
@@ -41,20 +45,22 @@ def recurse(subreddit, dictionary, after=None):
     if not after:
         return
     recurse(subreddit, dictionary, after=after)
+
+
 def count_words(subreddit, word_list):
     """ Init function """
     dictionary = {}
     for word in word_list:
         dictionary[word] = 0
     recurse(subreddit, dictionary)
-    l = sorted(dictionary.items(), key=lambda kv: kv[1])
-    l.reverse()
+    f = sorted(dictionary.items(), key=lambda kv: kv[1])
+    f.reverse()
 
-    for item in l:
+    for item in f:
         if item[1] is not 0:
             print("{}: {}".format(item[0], item[1]))
-    if len(l) != 0:
-        for item in l:
+    if len(f) != 0:
+        for item in f:
             if item[1] is not 0:
                 print("{}: {}".format(item[0], item[1]))
     else:
